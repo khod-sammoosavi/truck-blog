@@ -1,0 +1,18 @@
+{
+  "name": "truck-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "tailwind-dev": "npx tailwindcss -i ./static/css/style.css -o ./static/css/tailwind.css --watch",
+    "tailwind-build": "npx tailwindcss -i ./static/css/style.css -o ./static/css/tailwind.css --build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10"
+  }
+}
