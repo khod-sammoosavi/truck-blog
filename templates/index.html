@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="{{ url_for('static',filename='css/tailwind.css') }}" rel="stylesheet">
-</head>
-<body>
-  <main>
-    {% block main %}{% endblock %}
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruckBlog | {% block title %}{% endblock %}</title>
+    <style type="text/css">
+      @font-face {
+        font-family: 'Anton';
+        src: url({{url_for("static", filename="fonts/Anton-Regular.ttf")}});
+      }
+      body {
+        font-family: "Anton";
+      }
+    </style>
+    <link href="{{ url_for('static',filename='css/tailwind.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+      {% block main %}{% endblock %}
+    </main>
+  </body>
 </html>
