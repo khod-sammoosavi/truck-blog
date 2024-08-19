@@ -1,0 +1,47 @@
+{% extends "admin_base.html" %}
+
+{% block title_admin %}Pages{% endblock %}
+
+{% block main %}
+<div class="flex flex-col w-full h-fit">
+  <h3 class="mb-10 pb-5 border-b-4 border-b-gray-200">Create New page</h3>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="w-full bg-red-600 rounded-md p-5 text-xl bg-opacity-50 mb-10">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <form class="grid grid-cols-2 w-full gap-5" method="post">
+    <div class="flex w-full">
+      <label class="text-xl m-auto w-2/12">Name :</label>
+      <input type="text" name="name" class="text-xl bg-neutral-800 text-gray-200 rounded-md focus:outline-none p-3 w-10/12">
+    </div>
+    <div class="flex w-full">
+      <label class="text-xl w-2/12 m-auto">Slug :</label>
+      <input type="text" name="slug" class="text-xl bg-neutral-800 ml-5 text-gray-200 rounded-md focus:outline-none p-3 w-10/12">
+    </div>
+    <button type="submit" class="bg-neutral-500 p-2 w-fit text-xl rounded-md">Create</button>
+  </form>
+  <div class="flex flex-col mt-10">
+    <h3 class="mb-10 pb-5 border-b-4 border-b-gray-200">All Pages</h3>
+    <div class="grid grid-cols-2">
+      <h4>Page Name's</h4>
+      <h4>Page Url's</h4>
+    </div>
+    <ul class="text-xl text-gray-200 w-full my-5">
+      {% for page, slug in list_of_pages.items() %}
+      <li class="grid grid-cols-2 mb-2">
+        <a href="/admin/pages/page/{{ slug }}" class="text-red-600 hover:underline">{{ page }}</a>
+        <span class="text-neutral-400 font-mono">{{slug}}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <form class="grid grid-cols-2 w-full gap-5" method="post" action="/admin/delete_all_pages">
+      <button type="submit" class="bg-neutral-500 p-2 w-fit text-xl rounded-md">Delete All Pages</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

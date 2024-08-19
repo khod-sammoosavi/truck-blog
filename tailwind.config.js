@@ -7,6 +7,9 @@ module.exports = {
     // home app
     "./home/templates/**/*.{html,css,js}",
     "./home/static/**/*.{html,css,js}",
+    // admin app
+    "./admin/templates/**/*.{html,css,js}",
+    "./admin/static/**/*.{html,css,js}",
   ],
   theme: {
     extend: {},
