@@ -7,7 +7,9 @@ from admin import Admin
 template_dir = os.path.join(BASE_DIR, "templates")
 static_dir = os.path.join(BASE_DIR, "static")
 
-app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir,
+            instance_relative_config=True, instance_path=BASE_DIR)
+
 
 app.config.from_pyfile("settings", silent=True)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
